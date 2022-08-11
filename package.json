@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/akelstrom/grocery-tracker#readme",
   "dependencies": {
+    "@nestjs/serve-static": "^3.0.0",
     "concurrently": "^7.3.0"
   }
 }
