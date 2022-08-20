@@ -3,12 +3,16 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { DatabaseModule } from './core/database/database.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '../../client', 'public'),
     }),
+    DatabaseModule,
+    ConfigModule.forRoot({ isGlobal: true }) //this will make the .env properties avaliable to rest of application
   ],
   controllers: [AppController],
   providers: [AppService],
