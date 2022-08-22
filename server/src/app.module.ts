@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './core/database/database.module';
 import { ConfigModule } from '@nestjs/config';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
@@ -12,7 +13,8 @@ import { ConfigModule } from '@nestjs/config';
       rootPath: join(__dirname, '../../client', 'public'),
     }),
     DatabaseModule,
-    ConfigModule.forRoot({ isGlobal: true }) //this will make the .env properties avaliable to rest of application
+    ConfigModule.forRoot({ isGlobal: true }),
+    UsersModule //this will make the .env properties avaliable to rest of application
   ],
   controllers: [AppController],
   providers: [AppService],
