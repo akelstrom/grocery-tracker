@@ -12,7 +12,10 @@ import { ConfigModule } from '@nestjs/config';
       rootPath: join(__dirname, '../../client', 'public'),
     }),
     DatabaseModule,
-    ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env.samples' }), //this will make the .env properties avaliable to rest of application
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: ['.env.samples', '.env.local'],
+    }), //this will make the .env properties avaliable to rest of application
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,6 +1,7 @@
 import { Sequelize } from 'sequelize-typescript';
 import { SEQUELIZE, DEVELOPMENT, TEST, PRODUCTION } from '../constants';
 import { databaseConfig } from './database.config';
+
 export const databaseProviders = [
   {
     provide: SEQUELIZE,
@@ -20,11 +21,16 @@ export const databaseProviders = [
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
           config = databaseConfig.development;
       }
-      const sequelize = new Sequelize('test', 'root', 'root', {
-        host: 'localhost',
-        dialect: 'postgres',
-        port: 5432,
-      });
+      const sequelize = new Sequelize(
+        process.env.LOCAL_DB,
+        process.env.LOCAL_USER,
+        process.env.LOCAL_PASS,
+        {
+          host: 'localhost',
+          dialect: 'postgres',
+          port: 5432,
+        },
+      );
       sequelize.addModels(['models goes here']);
       await sequelize.sync();
       return sequelize;
