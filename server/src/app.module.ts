@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './core/database/database.module';
 import { ConfigModule } from '@nestjs/config';
+import { InventoryModule } from './inventory/inventory.module';
 
 @Module({
   imports: [
@@ -15,7 +16,8 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: ['.env.samples', '.env.local'],
-    }), //this will make the .env properties avaliable to rest of application
+    }),
+    InventoryModule, //this will make the .env properties available to rest of application
   ],
   controllers: [AppController],
   providers: [AppService],
