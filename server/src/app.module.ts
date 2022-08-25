@@ -13,7 +13,7 @@ import { UsersModule } from './modules/users/users.module';
       rootPath: join(__dirname, '../../client', 'public'),
     }),
     DatabaseModule,
-    ConfigModule.forRoot({ isGlobal: true, envFilePath: [''] }),
+    ConfigModule.forRoot({ isGlobal: true, envFilePath: ['.env.local'] }),
     UsersModule, //this will make the .env properties avaliable to rest of application
   ],
   controllers: [AppController],
