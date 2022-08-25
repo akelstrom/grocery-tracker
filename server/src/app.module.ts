@@ -16,7 +16,7 @@ import { AuthModule } from './modules/auth/auth.module';
     DatabaseModule,
     ConfigModule.forRoot({ isGlobal: true }),
     UsersModule,
-    AuthModule //this will make the .env properties avaliable to rest of application
+    AuthModule 
   ],
   controllers: [AppController],
   providers: [AppService],
