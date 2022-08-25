@@ -13,7 +13,8 @@ import { JwtModule } from '@nestjs/jwt';
     UsersModule,  
     JwtModule.register({
     secret: process.env.JWTKEY,
-    signOptions: { expiresIn: process.env.TOKEN_EXPIRATION }})
+    signOptions: { expiresIn: process.env.TOKEN_EXPIRATION }}),
+    PassportModule.register({ session: true })
 ],
   providers: [AuthService, LocalStrategy, JwtStrategy],
   controllers: [AuthController]

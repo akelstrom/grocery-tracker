@@ -40,7 +40,7 @@ export class AuthService {
     }
 
     private async hashPassword(password) {
-        const hash = await bcrypt(password, 10);
+        const hash = await bcrypt.hash(password, 10);
         return hash;
     }
 
