@@ -18,7 +18,8 @@ import { InventoryModule } from './inventory/inventory.module';
       isGlobal: true,
       envFilePath: ['.env.samples', '.env.local'],
     }),
-    InventoryModule, //this will make the .env properties available to rest of application
+    UsersModule,
+    InventoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
